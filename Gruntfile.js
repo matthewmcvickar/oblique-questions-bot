@@ -22,7 +22,7 @@ module.exports = function(grunt) {
         tasks: ['jshint:gruntfile']
       },
       app: {
-        files: 'index.js',
+        files: 'bot.js',
         tasks: ['jshint:app']
       }
     },

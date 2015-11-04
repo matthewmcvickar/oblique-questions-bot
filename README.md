@@ -11,7 +11,7 @@ Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [guten
 
 This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences.
 
-Once collected, I wrote a script to format and filter the sentences into a set of tweetable questions. In order:
+Once collected, I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of tweetable questions. In order:
 
 - Removed beginning and trailing quotation marks, such that questions that were quotations in the original text would be tweeted as though they were prose.
 
@@ -38,7 +38,7 @@ If a sentence passed all the filters, I added it to a giant JSON file.
 
 After refining the script, I ended up with a JSON file of about 66K questions.
 
-I then wrote a script that reads the JSON file, chooses a question from it at random, and tweets the question.
+I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and tweets the question.
 
 This script is running on Heroku.
 
