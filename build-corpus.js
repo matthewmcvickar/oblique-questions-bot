@@ -43,6 +43,10 @@ function lastCharacterIsQuestionMark(question) {
 // Additional filters.
 wordfilter.addWords([
 
+  // To get a better set of questions, I'm filtering out a lot of questions.
+  // The lists below are used in addition to the default set:
+  // https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json
+
   // Troublesome characters.
   '1',
   '2',
@@ -94,20 +98,12 @@ wordfilter.addWords([
   'wain\'t',
 
   // Religious.
-  'antichrist',
   'arab',
-  'arabic',
   'ascetic',
-  'asceticism',
-  'bible',
-  'biblical',
-  'buddha',
-  'buddhism',
-  'buddhist',
+  'bibl',
+  'buddh',
   'catholic',
-  'catholicism',
   'christ',
-  'christian',
   'clergy',
   'covenant',
   'episcopal',
@@ -115,7 +111,6 @@ wordfilter.addWords([
   'islam',
   'jesus',
   'jew',
-  'jewish',
   'judaism',
   'koran',
   'mohammed',
