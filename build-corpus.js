@@ -13,10 +13,13 @@ var questionsArray = fs.readFileSync(questionsFile).toString().split('\n');
 function formatQuestion(question) {
   // Trim spaces.
   question = question.trim();
+
   // Strip beginning and ending quotation marks.
   question = question.replace(/^['"`]/, '').replace(/['"`]$/, '');
+
   // Capitalize the very first letter.
   question = question.charAt(0).toUpperCase() + question.slice(1);
+
   return question;
 }
 
