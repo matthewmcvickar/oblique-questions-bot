@@ -25,7 +25,7 @@ Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter 
 
 - Filtered out any question that contained non-letter characters (excluding apostrophes), as they often indicated weird formatting and non-questions:
     ```txt
-    1 2 3 4 5 6 7 8 9 0 : ; . " “ ‘ ` ` _ - ~ # % & = < > [ ] ( ) { } $ ^ + \ / |
+    1 2 3 4 5 6 7 8 9 0 : ; . " “ ” ‘ ’ ` _ - ~ # % & = < > [ ] ( ) { } $ ^ + \ / |
     ```
 
 - Filtered out any question that contained archaic language (like `thine` and `dost` and `prithee`).
