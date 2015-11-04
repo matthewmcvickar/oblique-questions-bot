@@ -51,8 +51,6 @@ I couldn't have created this bot without the help of the following:
 
 - [Sarah Kuehnle's 'Creating a Twitter bot with Node.js' series](http://ursooperduper.github.io/2014/10/27/twitter-bot-with-node-js-part-1.html)
 
-- [Molly White's two-part series on Twitter bots](http://blog.mollywhite.net/twitter-bots-pt1/)
-
 - [Darius Kazemi](https://twitter.com/tinysubversions) provided inspiration and of personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
 
 - [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project was instrumental in both providing my corpus and tokenizing it into sentences.
