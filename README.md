@@ -59,6 +59,8 @@ I couldn't have created this bot without the help of the following:
 
 - This project was inspired in name and in concept by Brian Eno and Peter Schmidt's [Oblique Strategies](https://en.wikipedia.org/wiki/Oblique_Strategies).
 
+- This project was also inspired by [Jeremy P. Bushnell's 'Notes Minus Context' Twitter account](https://twitter.com/jpbisreading).
+
 
 ## Afterword
 
