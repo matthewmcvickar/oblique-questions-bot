@@ -1,0 +1,1 @@
+This avatar and background banner image are portions of screenshots taken of the [Google Books view of *The Yellow Wall Paper*](https://books.google.com/books?id=4XsEAAAAYAAJ&printsec=frontcover&source=gbs_ge_summary_r&cad=0#v=twopage&q&f=false) by Charlotte Perkins Gilman.
