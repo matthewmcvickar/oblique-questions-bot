@@ -7,11 +7,13 @@ A Twitter bot that tweets questions without context.
 
 ## How I Built It
 
-Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
+Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts. (This required moving the folder-separated files on the Project Gutenberg disk image into a single folder and then deleting everything that wasn't a text file.)
 
-This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences.
+This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences. (This required [installing NLTK](http://www.nltk.org/install.html) and downloading its data.)
 
-Once collected, I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of tweetable questions. In order:
+Once tokenized, I deleted duplicate lines and deleted empty lines from the corpus.
+
+Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of tweetable questions. In order:
 
 - Removed beginning and trailing quotation marks, such that questions that were quotations in the original text would be tweeted as though they were prose.
 
@@ -51,7 +53,7 @@ I couldn't have created this bot without the help of the following:
 
 - [Molly White's two-part series on Twitter bots](http://blog.mollywhite.net/twitter-bots-pt1/)
 
-- [Darius Kazemi](https://twitter.com/tinysubversions) provided inspiration and plenty of personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
+- [Darius Kazemi](https://twitter.com/tinysubversions) provided inspiration and of personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
 
 - [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project was instrumental in both providing my corpus and tokenizing it into sentences.
 
