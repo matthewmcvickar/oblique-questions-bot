@@ -7,7 +7,7 @@ A Twitter bot that tweets questions without context.
 
 ## How I Built It
 
-Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic and political texts.
+Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
 
 This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences.
 
