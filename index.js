@@ -12,16 +12,12 @@ var T = new Twit({
 var questions         = require('./data/questions-corpus.json');
 var numberOfQuestions = Object.keys(questions).length;
 
-console.log(numberOfQuestions);
-
 function getQuestion() {
   return questions[Math.floor(Math.random()*numberOfQuestions)];
 }
 
 function tweet() {
   var theQuestion = getQuestion();
-
-  console.log(getQuestion());
 
   T.post('statuses/update', { status: theQuestion }, function(err) {
     if (err) {
