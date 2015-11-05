@@ -5,31 +5,47 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     jshint: {
+      files: {
+        src: ['bot.js', 'build-corpus.js', 'Gruntfile.js']
+      },
       options: {
-        jshintrc: '.jshintrc'
+        eqeqeq:  true,
+        forin:   true,
+        latedef: true,
+        undef:   true,
+        unused:  true,
+        strict:  true,
+        eqnull:  true,
+        node:    true
+      }
+    },
+
+    jscs: {
+      files: {
+        src: ['bot.js', 'build-corpus.js', 'Gruntfile.js']
       },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      app: {
-        src: ['js/*.js', '*.js']
+      options: {
+        requireCapitalizedConstructors: true,
+        requireCurlyBraces:             true,
+        requireDotNotation:             true,
+        requireParenthesesAroundIIFE:   true,
+        disallowEmptyBlocks:            true,
+        disallowMixedSpacesAndTabs:     true,
+        validateIndentation:            2,
+        validateQuoteMarks:             '\''
       }
     },
 
     watch: {
-      gruntfile: {
-        files: 'Gruntfile.js',
-        tasks: ['jshint:gruntfile']
-      },
-      app: {
-        files: 'bot.js',
-        tasks: ['jshint:app']
+      javascript: {
+        files: ['**/*.js'],
+        tasks: ['jshint', 'jscs']
       }
     },
 
     notify_hooks: {
       options: {
-        enabled: true,
+        enabled:                          true,
         max_jshint_notifications: 5
       }
     }
@@ -38,6 +54,7 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-notify');
 
   // Default task.
@@ -45,6 +62,7 @@ module.exports = function(grunt) {
     'default',
     [
       'jshint',
+      'jscs',
       'watch'
     ]
   );

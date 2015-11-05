@@ -1,3 +1,5 @@
+'use strict';
+
 // Require filesystem and wordfilter.
 var fs         = require('fs');
 var jsonfile   = require('jsonfile');
@@ -131,21 +133,24 @@ var counter = 0;
 
 // Run through questions.
 for (var question in questionsArray) {
+  if (questionsArray.hasOwnProperty(question)) {
 
-  // Format the question in question.
-  var theQuestion = formatQuestion(questionsArray[question]);
+    // Format the question in question.
+    var theQuestion = formatQuestion(questionsArray[question]);
 
-  // If it's 140 characters or less, doesn't have proper nouns, is a question,
-  // and passes the word filters, then add it to the JSON!
-  if (theQuestion.length < 141 &&
-      !hasProperNouns(theQuestion) &&
-      !hasCertainCharacters(theQuestion) &&
-      !wordfilter.blacklisted(theQuestion) &&
-      lastCharacterIsQuestionMark(theQuestion))
-  {
-    // console.log(theQuestion)
-    questionsObject[counter] = theQuestion;
-    counter++;
+    // If it's 140 characters or less, doesn't have proper nouns, is a question,
+    // and passes the word filters, then add it to the JSON!
+    if (theQuestion.length < 141 &&
+        !hasProperNouns(theQuestion) &&
+        !hasCertainCharacters(theQuestion) &&
+        !wordfilter.blacklisted(theQuestion) &&
+        lastCharacterIsQuestionMark(theQuestion))
+    {
+      // console.log(theQuestion)
+      questionsObject[counter] = theQuestion;
+      counter++;
+    }
+
   }
 }
 

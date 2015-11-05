@@ -1,3 +1,5 @@
+'use strict';
+
 var Twit = require('twit');
 var T = new Twit({
   consumer_key:        process.env.TWITTER_CONSUMER_KEY,
@@ -35,8 +37,8 @@ setInterval(function () {
   catch (e) {
     console.log(e);
   }
-   // Formula: milliseconds in a second * 60 seconds * 60 minutes * 4 hours.
 }, 1000 * 60 * 60 * 4);
+// Formula: milliseconds in a second * 60 seconds * 60 minutes * 4 hours.
 
 // Tweet once on initialization
 tweet();
