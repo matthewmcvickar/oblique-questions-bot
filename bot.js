@@ -26,7 +26,6 @@ function tweet() {
       console.log('error:', err);
     }
   });
-
 }
 
 // Tweet six times a day.
