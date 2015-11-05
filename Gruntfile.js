@@ -41,13 +41,6 @@ module.exports = function(grunt) {
         files: ['**/*.js'],
         tasks: ['jshint', 'jscs']
       }
-    },
-
-    notify_hooks: {
-      options: {
-        enabled:                          true,
-        max_jshint_notifications: 5
-      }
     }
   });
 
