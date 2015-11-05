@@ -8,7 +8,7 @@ var T = new Twit({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 });
 
-// When working locally.
+// When tweeting from local machine.
 // var T = new Twit(require('./config.js'));
 
 var questions         = require('./data/questions-corpus.json');
@@ -28,7 +28,9 @@ function tweet() {
   });
 }
 
-// Tweet six times a day.
+// Tweet on a regular schedule.
+var timesToTweetPerDay = 6;
+
 setInterval(function () {
   try {
     tweet();
@@ -36,8 +38,7 @@ setInterval(function () {
   catch (e) {
     console.log(e);
   }
-}, 1000 * 60 * 60 * 4);
-// Formula: milliseconds in a second * 60 seconds * 60 minutes * 4 hours.
+}, (1000 * 60 * 60 * 24) / timesToTweetPerDay) ;
 
 // Tweet once on initialization
 tweet();
