@@ -31,6 +31,8 @@ function tweet() {
 // Tweet on a regular schedule.
 var timesToTweetPerDay = 6;
 
+// Because Heroku cycles dynos once per day, the bot's schedule will not be
+// regular: https://devcenter.heroku.com/articles/how-heroku-works#dyno-manager
 setInterval(function () {
   try {
     tweet();
@@ -38,7 +40,7 @@ setInterval(function () {
   catch (e) {
     console.log(e);
   }
-}, (1000 * 60 * 60 * 24) / timesToTweetPerDay) ;
+}, (1000 * 60 * 60 * 24) / timesToTweetPerDay);
 
-// Tweet once on initialization
+// Tweet once on initialization.
 tweet();
