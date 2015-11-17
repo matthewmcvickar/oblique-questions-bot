@@ -11,7 +11,10 @@ Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [guten
 
 This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences.
 
-Once tokenized, I deleted duplicate lines and deleted empty lines from the corpus.
+Once tokenized, I cleaned up the corpus a bit:
+
+  - deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique` command)
+  - deleted empty lines (found `\n\n` and replaced it with `\n`).
 
 Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of tweetable questions. In order:
 
@@ -24,6 +27,7 @@ Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter 
 - Filtered out any question that included a proper noun. (I felt this would provide too much context.) I did this with a regular expression that searched for words preceded by a space and starting with a capitalized letter. This doesn't capture proper nouns at the beginning of sentences, but that's fine.
 
 - Filtered out any question that contained non-letter characters (excluding apostrophes), as they often indicated weird formatting and non-questions:
+
     ```txt
     1 2 3 4 5 6 7 8 9 0 : ; . " “ ” ‘ ’ < > [ ] ( ) { } ` ~ # $ % ^ & _ + - = \ / |
     ```
