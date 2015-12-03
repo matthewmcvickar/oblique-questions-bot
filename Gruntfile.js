@@ -2,6 +2,7 @@
 
 module.exports = function(grunt) {
 
+  // Configuration.
   grunt.initConfig({
 
     jshint: {
@@ -44,13 +45,13 @@ module.exports = function(grunt) {
     }
   });
 
-  // These plugins provide necessary tasks.
+  // Plugins.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-notify');
 
-  // Default task.
+  // Tasks.
   grunt.registerTask(
     'default',
     [
