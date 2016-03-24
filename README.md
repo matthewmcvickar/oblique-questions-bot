@@ -71,4 +71,3 @@ I couldn't have created this bot without the help of the following:
 ## Afterword
 
 This is my first Twitter bot. The idea for Oblique Questions came to me while walking the dog on Saturday, October 31, 2015. I started working on it the next day and launched the working bot on the morning of Wednesday, November 4, 2015.
-
