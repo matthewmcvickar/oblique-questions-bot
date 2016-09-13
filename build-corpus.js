@@ -105,6 +105,8 @@ wordfilter.addWords([
   // Racial. (Sentences with these words are too often problematic.)
   'white',
   'black',
+  'yellow',
+  'red',
   'colored',
   'slave',
 
