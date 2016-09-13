@@ -40,6 +40,8 @@ Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter 
 
 - Filtered out the [bad words listed in Darius Kazemi's wordfilter](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json).
 
+- Filtered out any question that contained some additional oppressive language not covered by wordfilter and words that tend to appear in problematic sentences.
+
 If a sentence passed all the filters, I added it to a giant JSON file.
 
 After refining the script, I ended up with a JSON file of about 66K questions.
