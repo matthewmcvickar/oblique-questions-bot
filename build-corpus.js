@@ -99,6 +99,15 @@ wordfilter.addWords([
   'your\'n',
   'wain\'t',
 
+  // Oppresive.
+  'wench',
+
+  // Racial. (Sentences with these words are too often problematic.)
+  'white',
+  'black',
+  'colored',
+  'slave',
+
   // Religious.
   'arab',
   'ascetic',
