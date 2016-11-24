@@ -99,7 +99,7 @@ wordfilter.addWords([
   'your\'n',
   'wain\'t',
 
-  // Oppresive.
+  // Oppressive.
   'wench',
 
   // Racial. (Sentences with these words are too often problematic.)
