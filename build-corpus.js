@@ -12,6 +12,9 @@ var questionsJSON = './data/questions-corpus.json';
 // Read questions into an array.
 var questionsArray = fs.readFileSync(questionsFile).toString().split('\n');
 
+// Settings.
+var characterLimit = 140;
+
 function formatQuestion(question) {
   // Trim spaces.
   question = question.trim();
@@ -151,7 +154,7 @@ for (var question in questionsArray) {
 
     // If it's 140 characters or less, doesn't have proper nouns, is a question,
     // and passes the word filters, then add it to the JSON!
-    if (theQuestion.length < 141 &&
+    if (theQuestion.length <= characterLimit &&
         !hasProperNouns(theQuestion) &&
         !hasCertainCharacters(theQuestion) &&
         !wordfilter.blacklisted(theQuestion) &&

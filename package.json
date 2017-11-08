@@ -25,7 +25,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-jscs": "^3.0.1",
     "grunt-notify": "^0.4.5",
-    "jsonfile": "^3.0.1",
+    "jsonfile": "^4.0.0",
     "wordfilter": "^0.2.6"
   }
 }
