@@ -14,7 +14,8 @@
   },
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js"
+    "start": "node bot.js",
+    "build": "node build-corpus.js"
   },
   "dependencies": {
     "twit": "^2.2.9"

@@ -102,8 +102,9 @@ wordfilter.addWords([
   'your\'n',
   'wain\'t',
 
-  // Oppressive.
+  // Oppressive or violent.
   'wench',
+  'kill',
 
   // Racial. (Sentences with these words are too often problematic.)
   'white',
@@ -155,9 +156,9 @@ for (var question in questionsArray) {
     // If it's 140 characters or less, doesn't have proper nouns, is a question,
     // and passes the word filters, then add it to the JSON!
     if (theQuestion.length <= characterLimit &&
-        !hasProperNouns(theQuestion) &&
-        !hasCertainCharacters(theQuestion) &&
-        !wordfilter.blacklisted(theQuestion) &&
+        ! hasProperNouns(theQuestion) &&
+        ! hasCertainCharacters(theQuestion) &&
+        ! wordfilter.blacklisted(theQuestion) &&
         lastCharacterIsQuestionMark(theQuestion))
     {
       // console.log(theQuestion)
