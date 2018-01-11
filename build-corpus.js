@@ -13,7 +13,7 @@ var questionsJSON = './data/questions-corpus.json';
 var questionsArray = fs.readFileSync(questionsFile).toString().split('\n');
 
 // Settings.
-var characterLimit = 140;
+var characterLimit = 280;
 
 function formatQuestion(question) {
   // Trim spaces.
