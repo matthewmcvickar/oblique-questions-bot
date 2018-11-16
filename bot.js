@@ -27,6 +27,7 @@ if (isProduction()) {
 
   var mastodon = new Masto({
     access_token: process.env.MASTODON_ACCESS_TOKEN,
+    api_url: 'https://botsin.space/api/v1/'
   });
 }
 else {
