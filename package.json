@@ -1,6 +1,6 @@
 {
   "name": "obliquestions",
-  "description": "A Twitter bot that tweets random, no-context questions from Project Gutenberg books.",
+  "description": "A bot that posts random, no-context questions from Project Gutenberg books.",
   "version": "1.0.0",
   "homepage": "https://github.com/matthewmcvickar/oblique-questions-bot",
   "author": {

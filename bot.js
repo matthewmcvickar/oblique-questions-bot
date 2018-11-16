@@ -5,13 +5,13 @@
 var canPostFromLocal = false;
 
 // Load libraries.
-var Twit = require('twit');
 var Masto = require('mastodon');
+var Twit = require('twit');
 
 // Are we on production? Check if an important environment variable exists.
 function isProduction () {
   return (
-    typeof(process.env.MASTODON_ACCESS_TOKEN) !== 'undefined' ||
+    typeof(process.env.MASTODON_ACCESS_TOKEN) !== 'undefined' &&
     typeof(process.env.TWITTER_CONSUMER_KEY) !== 'undefined'
   );
 }
@@ -42,7 +42,7 @@ var numberOfQuestions = Object.keys(questions).length;
 // Execute and post!
 createAndPost();
 
-// The main process. Get a useable comment and tweet it or try again.
+// The main process. Get a useable comment and post it or try again.
 function createAndPost () {
   var question = getQuestion();
   return post(question);
@@ -54,28 +54,28 @@ function getQuestion () {
 }
 
 // Post to the web.
-function post (data) {
-  if (typeof(data) !== 'undefined') {
-    console.log('NOW ATTEMPTING TO POST:', data);
+function post (thePostToPost) {
+  if (typeof(thePostToPost) !== 'undefined') {
+    console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
     if (isProduction() || canPostFromLocal) {
       // Twitter.
-      twitter.post('statuses/update', { status: data }, function (error) {
+      twitter.post('statuses/update', { status: thePostToPost }, function (error) {
         if (error) {
           console.log('ERROR POSTING:', error);
         }
         else {
-          console.log('SUCCESS!');
+          console.log('SUCCESSFULLY POSTED TO TWITTER!');
         }
       });
 
       // Mastodon.
-      mastodon.post('statuses', { status: data }, function (error) {
+      mastodon.post('statuses', { status: thePostToPost }, function (error) {
         if (error) {
           console.log('ERROR POSTING:', error);
         }
         else {
-          console.log('SUCCESS!');
+          console.log('SUCCESSFULLY POSTED TO MASTODON!');
         }
       });
     }
@@ -98,7 +98,7 @@ if (isProduction()) {
       createAndPost();
     }
     catch (error) {
-      console.log('PROCESS UNSUCCESSFUL!', error);
+      console.log('POSTING UNSUCCESSFUL!', error);
     }
   }, postInterval);
 }

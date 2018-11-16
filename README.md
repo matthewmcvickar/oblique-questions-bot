@@ -1,8 +1,11 @@
 # Oblique Questions Bot
 
-**[@obliquestions](https://twitter.com/obliquestions)**
+A bot that posts questions without context.
 
-A Twitter bot that tweets questions without context.
+Currently simultaneously posting six times a day to both Twitter and Mastodon.
+
+- **[@obliquestions on Mastodon](https://botsin.space/@obliquestions)**
+- **[@obliquestions on Twitter](https://twitter.com/obliquestions)**
 
 
 ## How I Built It
@@ -16,9 +19,9 @@ Once tokenized, I cleaned up the corpus a bit:
   - deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique` command)
   - deleted empty lines (found `\n\n` and replaced it with `\n`).
 
-Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of tweetable questions. In order:
+Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of postable questions. In order:
 
-- Removed beginning and trailing quotation marks, such that questions that were quotations in the original text would be tweeted as though they were prose.
+- Removed beginning and trailing quotation marks, such that questions that were quotations in the original text would be posted as though they were prose.
 
 - Capitalized the first letter of the question, in case it wasn't already capitalized.
 
@@ -46,7 +49,7 @@ If a sentence passed all the filters, I added it to a giant JSON file.
 
 After refining the script, I ended up with a JSON file of about 66K questions.
 
-I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and tweets the question.
+I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and posts the question.
 
 This script is running on Heroku.
 
