@@ -18,15 +18,16 @@
     "build": "node build-corpus.js"
   },
   "dependencies": {
-    "twit": "^2.2.9"
+    "mastodon": "^1.2.2",
+    "twit": "^2.2.11"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-contrib-jshint": "^1.1.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt": "^1.0.3",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-jscs": "^3.0.1",
     "grunt-notify": "^0.4.5",
-    "jsonfile": "^4.0.0",
+    "jsonfile": "^5.0.0",
     "wordfilter": "^0.2.6"
   }
 }
