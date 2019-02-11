@@ -15,7 +15,8 @@
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "build": "node build-corpus.js"
+    "build": "node build-corpus.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "dependencies": {
     "mastodon": "^1.2.2",
@@ -24,5 +25,6 @@
   "devDependencies": {
     "jsonfile": "^5.0.0",
     "wordfilter": "^0.2.6"
-  }
+  },
+  "heroku-run-build-script": true
 }
