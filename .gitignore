@@ -1,4 +1,5 @@
 .DS_Store
-config/
+config/mastodon-config.js
+config/twitter-config.js
 node_modules/
 _gutengrep
