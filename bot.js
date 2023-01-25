@@ -85,9 +85,6 @@ function post (thePostToPost) {
   }
 }
 
-// Note that because Heroku machines restart at least once per day, the bot's
-// schedule will not be regular:
-// https://devcenter.heroku.com/articles/how-heroku-works#dyno-manager
 if (isProduction()) {
   var millisecondsInDay = 1000 * 60 * 60 * 24;
   var timesToPostPerDay = 6;
