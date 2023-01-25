@@ -19,11 +19,11 @@
     "heroku-postbuild": "echo Skip build on Heroku"
   },
   "dependencies": {
-    "mastodon": "^1.2.2",
+    "masto": "^5.6.1",
     "twit": "^2.2.11"
   },
   "devDependencies": {
-    "jsonfile": "^5.0.0",
+    "jsonfile": "^6.1.0",
     "wordfilter": "^0.2.6"
   },
   "heroku-run-build-script": true

@@ -5,7 +5,7 @@
 var canPostFromLocal = false;
 
 // Load libraries.
-var Masto = require('mastodon');
+var Masto = require('masto');
 var Twit = require('twit');
 
 // Are we on production? Check if an important environment variable exists.
