@@ -7,7 +7,6 @@ Currently simultaneously posting six times a day to both Twitter and Mastodon.
 - **[@obliquestions on Mastodon](https://botsin.space/@obliquestions)**
 - **[@obliquestions on Twitter](https://twitter.com/obliquestions)**
 
-
 ## How I Built It
 
 Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
@@ -16,8 +15,8 @@ This left me with about 400 books. I used [gutengrep](https://github.com/hugovk)
 
 Once tokenized, I cleaned up the corpus a bit:
 
-  - deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique` command)
-  - deleted empty lines (found `\n\n` and replaced it with `\n`).
+- deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique` command)
+- deleted empty lines (found `\n\n` and replaced it with `\n`).
 
 Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of postable questions. In order:
 
@@ -53,7 +52,6 @@ I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a que
 
 This script is running on Heroku.
 
-
 ## Acknowledgements
 
 I couldn't have created this bot without the help of the following:
@@ -71,7 +69,6 @@ I couldn't have created this bot without the help of the following:
 - This project was also inspired by [Allison Parrish's Deep Question Bot](https://twitter.com/deepquestionbot).
 
 - This project was also inspired by [Jeremy P. Bushnell's 'Notes Minus Context' Twitter account](https://twitter.com/jpbisreading).
-
 
 ## Afterword
 
