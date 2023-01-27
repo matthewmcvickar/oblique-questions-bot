@@ -1,5 +1,7 @@
 .DS_Store
-config/mastodon-config.js
-config/twitter-config.js
+.env
 node_modules/
 _gutengrep
+
+# Local Netlify folder
+.netlify
