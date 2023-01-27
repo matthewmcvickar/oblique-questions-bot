@@ -13,8 +13,7 @@ const canPostFromLocal = false;
 // Are we on production? Check if an important environment variable exists.
 const isProduction = () => {
   return (
-    typeof(process.env.MASTODON_ACCESS_TOKEN) !== 'undefined' &&
-    typeof(process.env.TWITTER_CONSUMER_KEY) !== 'undefined'
+    typeof(process.env.MASTODON_ACCESS_TOKEN) !== 'undefined'
   );
 }
 
@@ -23,12 +22,6 @@ const twitter = {};
 const mastodon = {};
 
 if (isProduction()) {
-  twitter = new Twit({
-    consumer_key:        process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret:     process.env.TWITTER_CONSUMER_SECRET,
-    access_token:        process.env.TWITTER_ACCESS_TOKEN,
-    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-  });
 
   mastodon = new Masto({
     access_token: process.env.MASTODON_ACCESS_TOKEN,
@@ -37,7 +30,7 @@ if (isProduction()) {
 }
 else {
   mastodon = new Masto(require('./config/mastodon-config.js'));
-  twitter  = new Twit(require('./config/twitter-config.js'));
+
 }
 
 // Get a random question.
@@ -52,16 +45,6 @@ const post = (thePostToPost) => {
     console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
     if (isProduction() || canPostFromLocal) {
-      // Twitter.
-      twitter.post('statuses/update', { status: thePostToPost }, function (error) {
-        if (error) {
-          console.log('ERROR POSTING:', error);
-        }
-        else {
-          console.log('SUCCESSFULLY POSTED TO TWITTER!');
-        }
-      });
-
       // Mastodon.
       mastodon.post('statuses', { status: thePostToPost }, function (error) {
         if (error) {
