@@ -1,6 +1,5 @@
-import { Masto } from 'masto';
-import { Twit } from 'twit';
-import * as questions from './data/questions-corpus.json';
+const Masto = require('masto');
+const questions = require('./data/questions-corpus.json');
 
 // The main process. Get a useable comment and post it or try again.
 export function createAndPost() {
