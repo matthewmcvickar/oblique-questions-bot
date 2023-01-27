@@ -1,2 +1,2 @@
-[functions."do-post"]
+[functions."post"]
 schedule = "0 */3 * * *" # every three hours
