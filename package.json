@@ -18,11 +18,11 @@
     "build": "node build-corpus.js"
   },
   "dependencies": {
+    "load-json-file": "^7.0.1",
     "masto": "^5.6.1"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
-    "jsonfile": "^6.1.0",
     "wordfilter": "^0.2.6"
   }
 }
