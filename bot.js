@@ -4,7 +4,7 @@ import { login } from 'masto';
 // Import questions JSON file.
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
-const questions = require('./data/questions-corpus.json');
+const questions = require('data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
