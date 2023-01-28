@@ -36,7 +36,7 @@ async function post(thePostToPost) {
     });
 
     if (status.id !== 'undefined') {
-      console.log('SUCCESSFULLY POSTED TO MASTODON: ' . status.uri);
+      console.log('SUCCESSFULLY POSTED TO MASTODON: ', status.url);
     }
     else {
       console.log('ERROR POSTING:', status);

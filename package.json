@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "load-json-file": "^7.0.1",
-    "masto": "^5.6.1"
+    "masto": "^5.7.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
