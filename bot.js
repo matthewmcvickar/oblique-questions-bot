@@ -1,19 +1,17 @@
 import * as dotenv from 'dotenv'; dotenv.config();
 import { login } from 'masto';
+import jsonfile from 'jsonfile';
 
 // Import questions JSON file.
-import { readFile } from 'fs/promises';
-const questions = JSON.parse(
-  await readFile(
-    new URL('./data/questions-corpus.json', import.meta.url)
-  )
-);
+const questions = jsonfile.readFile('./data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
-const masto = await login({
-  url: 'https://botsin.space',
-  accessToken: process.env.MASTODON_ACCESS_TOKEN,
+const masto = (async () => {
+  await login({
+    url: 'https://botsin.space',
+    accessToken: process.env.MASTODON_ACCESS_TOKEN,
+  });
 });
 
 // The main process. Get a useable comment and post it or try again.
