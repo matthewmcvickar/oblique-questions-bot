@@ -3,7 +3,7 @@ import { login } from 'masto';
 import { loadJsonFileSync } from 'load-json-file';
 
 // Import questions JSON file.
-const questions = loadJsonFileSync('./data/questions-corpus.json');
+const questions = loadJsonFileSync('data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
