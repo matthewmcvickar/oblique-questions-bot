@@ -6,12 +6,11 @@ const questions = loadJsonFileSync('./data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
-async function main() {
-  const access = await login({
+async function accessMastodon() {
+  return await login({
     url: 'https://botsin.space',
     accessToken: process.env.MASTODON_ACCESS_TOKEN,
   });
-  return access;
 };
 
 // The main process. Get a useable comment and post it or try again.
@@ -31,8 +30,7 @@ async function post(thePostToPost) {
   if (typeof(thePostToPost) !== 'undefined') {
     console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
-    // Mastodon.
-    const masto = await main();
+    const masto = await accessMastodon();
     const status = await masto.v1.statuses.create({
       status: thePostToPost,
       visibility: 'public'
