@@ -1,2 +1,0 @@
-[functions."do-post"]
-schedule = "* * * * *" # every three hours
