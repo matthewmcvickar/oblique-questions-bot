@@ -6,10 +6,12 @@ const questions = loadJsonFileSync('./data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
-const masto = await login({
-  url: 'https://botsin.space',
-  accessToken: process.env.MASTODON_ACCESS_TOKEN,
-});
+const masto = async () => {
+  await login({
+    url: 'https://botsin.space',
+    accessToken: process.env.MASTODON_ACCESS_TOKEN,
+  });
+};
 
 // The main process. Get a useable comment and post it or try again.
 export function createAndPost() {
