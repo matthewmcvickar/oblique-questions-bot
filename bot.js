@@ -18,8 +18,6 @@ export function createAndPost() {
   return post(getQuestion());
 }
 
-createAndPost();
-
 // Get a random question.
 function getQuestion() {
   return questions[Math.floor(Math.random()*numberOfQuestions)].toString();
