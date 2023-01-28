@@ -1,24 +1,22 @@
 import * as dotenv from 'dotenv'; dotenv.config();
 import { login } from 'masto';
+import { loadJsonFileSync } from 'load-json-file';
 
-// Import questions JSON file.
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const questions = require('./data/questions-corpus.json');
+const questions = loadJsonFileSync('./data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
-const masto = (async () => {
-  await login({
-    url: 'https://botsin.space',
-    accessToken: process.env.MASTODON_ACCESS_TOKEN,
-  });
+const masto = await login({
+  url: 'https://botsin.space',
+  accessToken: process.env.MASTODON_ACCESS_TOKEN,
 });
 
 // The main process. Get a useable comment and post it or try again.
 export function createAndPost() {
   return post(getQuestion());
 }
+
+createAndPost();
 
 // Get a random question.
 function getQuestion() {
