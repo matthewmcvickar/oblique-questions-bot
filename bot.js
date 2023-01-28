@@ -1,9 +1,10 @@
 import * as dotenv from 'dotenv'; dotenv.config();
 import { login } from 'masto';
-import { loadJsonFileSync } from 'load-json-file';
 
 // Import questions JSON file.
-const questions = loadJsonFileSync('data/questions-corpus.json');
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const questions = require('./data/questions-corpus.json');
 const numberOfQuestions = Object.keys(questions).length;
 
 // Access Mastodon.
