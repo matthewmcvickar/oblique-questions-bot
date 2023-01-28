@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "load-json-file": "^7.0.1",
-    "masto": "^5.7.0"
+    "masto": "^5.7.0",
+    "module": "^1.2.5"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
