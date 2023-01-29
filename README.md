@@ -2,47 +2,61 @@
 
 A bot that posts questions without context.
 
-Currently simultaneously posting six times a day to both Twitter and Mastodon.
+Currently simultaneously posting six times a day to Mastodon. (It used to post
+to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
 - **[@obliquestions on Mastodon](https://botsin.space/@obliquestions)**
-- **[@obliquestions on Twitter](https://twitter.com/obliquestions)**
 
 ## How I Built It
 
 Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
 
-This left me with about 400 books. I used [gutengrep](https://github.com/hugovk) to tokenize the texts into sentences.
+This left me with about 400 books. I used [gutengrep](https://github.com/hugovk)
+to tokenize the texts into sentences.
 
 Once tokenized, I cleaned up the corpus a bit:
 
-- deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique` command)
+- deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique`
+  command)
 - deleted empty lines (found `\n\n` and replaced it with `\n`).
 
-Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter the sentences into a set of postable questions. In order:
+Then I wrote a script ([build-corpus.js](build-corpus.js)) to format and filter
+the sentences into a set of postable questions. In order:
 
-- Removed beginning and trailing quotation marks, such that questions that were quotations in the original text would be posted as though they were prose.
+- Removed beginning and trailing quotation marks, such that questions that were
+  quotations in the original text would be posted as though they were prose.
 
-- Capitalized the first letter of the question, in case it wasn't already capitalized.
+- Capitalized the first letter of the question, in case it wasn't already
+  capitalized.
 
 - Filtered out any question longer than 140 characters.
 
-- Filtered out any question that included a proper noun. (I felt this would provide too much context.) I did this with a regular expression that searched for words preceded by a space and starting with a capitalized letter. This doesn't capture proper nouns at the beginning of sentences, but that's fine.
+- Filtered out any question that included a proper noun. (I felt this would
+  provide too much context.) I did this with a regular expression that searched
+  for words preceded by a space and starting with a capitalized letter. This
+  doesn't capture proper nouns at the beginning of sentences, but that's fine.
 
-- Filtered out any question that contained non-letter characters (excluding apostrophes), as they often indicated weird formatting and non-questions:
+- Filtered out any question that contained non-letter characters (excluding
+  apostrophes), as they often indicated weird formatting and non-questions:
 
     ```txt
     1 2 3 4 5 6 7 8 9 0 : ; . " “ ” ‘ ’ < > [ ] ( ) { } ` ~ # $ % ^ & _ + - = \ / |
     ```
 
-- Filtered out any question that contained archaic language (like `thine` and `dost` and `prithee`).
+- Filtered out any question that contained archaic language (like `thine` and
+  `dost` and `prithee`).
 
-- Filtered out any question that contained religious language (like `moses` and `buddha` and `clergy`).
+- Filtered out any question that contained religious language (like `moses` and
+  `buddha` and `clergy`).
 
-- Filtered out any question that would relate to the text itself or Project Gutenberg itself (like `gutenberg` and `donate` and `chapter` and `section`).
+- Filtered out any question that would relate to the text itself or Project
+  Gutenberg itself (like `gutenberg` and `donate` and `chapter` and `section`).
 
 - Filtered out the [bad words listed in Darius Kazemi's wordfilter](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json).
 
-- Filtered out any question that contained some additional oppressive language not covered by wordfilter and words that tend to appear in problematic sentences.
+- Filtered out any question that contained some additional oppressive language
+  not covered by wordfilter and words that tend to appear in problematic
+  sentences.
 
 If a sentence passed all the filters, I added it to a giant JSON file.
 
@@ -72,4 +86,6 @@ I couldn't have created this bot without the help of the following:
 
 ## Afterword
 
-This is my first Twitter bot. The idea for Oblique Questions came to me while walking the dog on Saturday, October 31, 2015. I started working on it the next day and launched the working bot on the morning of Wednesday, November 4, 2015.
+This is my first bot. The idea for Oblique Questions came to me while walking
+the dog on Saturday, October 31, 2015. I started working on it the next day and
+launched the working bot on the morning of Wednesday, November 4, 2015.
