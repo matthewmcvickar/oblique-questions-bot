@@ -9,8 +9,4 @@ exports.handler = async function(event, context) {
   // Do the post.
   console.log('CALLING createAndPost() FUNCTION:')
   doPost();
-
-  return {
-    statusCode: 200,
-  };
 }
