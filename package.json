@@ -14,7 +14,7 @@
     "url": "https://github.com/matthewmcvickar/oblique-questions-bot.git"
   },
   "scripts": {
-    "post": "npx run-func index.js doPost",
+    "post": "npx run-func bot.js doPost",
     "build": "node build-corpus.js"
   },
   "dependencies": {

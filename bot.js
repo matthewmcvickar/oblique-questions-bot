@@ -4,7 +4,7 @@ import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
 export function doPost() {
-  return postToMastodon(getQuestion());
+  postToMastodon(getQuestion());
 }
 
 // Access Mastodon.
@@ -33,12 +33,15 @@ async function postToMastodon(thePostToPost) {
       visibility: 'public'
     });
 
+
     if (status.id !== 'undefined') {
       console.log('SUCCESSFULLY POSTED TO MASTODON: ', status.url);
     }
     else {
       console.log('ERROR POSTING:', status);
     }
+
+    return status;
   }
   else {
     console.log('ERROR: No post created; cannot post.');

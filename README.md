@@ -62,7 +62,7 @@ If a sentence passed all the filters, I added it to a giant JSON file.
 
 After refining the script, I ended up with a JSON file of about 66K questions.
 
-I then wrote a script ([index.js](index.js)) that reads the JSON file, chooses a question from it at random, and posts the question.
+I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and posts the question.
 
 This script is running on TODO.
 
