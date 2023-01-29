@@ -8,5 +8,5 @@ exports.handler = async function(event, context) {
 
   // Do the post.
   console.log('CALLING doPost() FUNCTION:')
-  doPost();
+  return doPost();
 }
