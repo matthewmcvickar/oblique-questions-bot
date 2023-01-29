@@ -15,7 +15,7 @@ async function accessMastodon() {
 
 // The main process. Get a useable comment and post it or try again.
 export function createAndPost() {
-  return post(getQuestion());
+  post(getQuestion());
 }
 
 // Get a random question.
