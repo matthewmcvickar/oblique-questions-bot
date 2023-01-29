@@ -4,7 +4,7 @@ import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
 export function doPost() {
-  postToMastodon(getQuestion());
+  return postToMastodon(getQuestion());
 }
 
 // Access Mastodon.
