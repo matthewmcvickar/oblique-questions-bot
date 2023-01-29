@@ -3,8 +3,8 @@ import { login } from 'masto';
 import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
-export function doPost() {
-  postToMastodon(getQuestion());
+export async function doPost() {
+  await postToMastodon(getQuestion());
 }
 
 // Access Mastodon.
