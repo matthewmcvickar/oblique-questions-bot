@@ -33,15 +33,12 @@ async function postToMastodon(thePostToPost) {
       visibility: 'public'
     });
 
-
     if (status.id !== 'undefined') {
       console.log('SUCCESSFULLY POSTED TO MASTODON: ', status.url);
     }
     else {
       console.log('ERROR POSTING:', status);
     }
-
-    return status;
   }
   else {
     console.log('ERROR: No post created; cannot post.');
