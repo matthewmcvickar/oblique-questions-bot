@@ -2,8 +2,10 @@ import * as dotenv from 'dotenv'; dotenv.config();
 import { login } from 'masto';
 import { loadJsonFileSync } from 'load-json-file';
 
-const questions = loadJsonFileSync('./data/questions-corpus.json');
-const numberOfQuestions = Object.keys(questions).length;
+// The main process. Get a question and post it.
+export function doPost() {
+  postToMastodon(getQuestion());
+}
 
 // Access Mastodon.
 async function accessMastodon() {
@@ -13,18 +15,15 @@ async function accessMastodon() {
   });
 };
 
-// The main process. Get a useable comment and post it or try again.
-export function createAndPost() {
-  post(getQuestion());
-}
-
 // Get a random question.
+const questions = loadJsonFileSync('./data/questions-corpus.json');
+const numberOfQuestions = Object.keys(questions).length;
 function getQuestion() {
   return questions[Math.floor(Math.random()*numberOfQuestions)].toString();
 }
 
 // Post the question.
-async function post(thePostToPost) {
+async function postToMastodon(thePostToPost) {
   if (typeof(thePostToPost) !== 'undefined') {
     console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 

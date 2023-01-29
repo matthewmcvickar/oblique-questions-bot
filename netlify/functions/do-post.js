@@ -1,4 +1,4 @@
-import { createAndPost } from '../../bot';
+import { doPost } from '../..';
 
 exports.handler = async function(event, context) {
   console.log('---');
@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
 
   // Do the post.
   console.log('CALLING createAndPost() FUNCTION:')
-  createAndPost();
+  doPost();
 
   return {
     statusCode: 200,
