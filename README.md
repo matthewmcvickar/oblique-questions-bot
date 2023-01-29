@@ -1,9 +1,11 @@
 # Oblique Questions Bot
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/78970349-9fec-4fb2-8ca0-84b8d9e79066/deploy-status)](https://app.netlify.com/sites/oblique-questions-bot/deploys)
+
 A bot that posts questions without context.
 
-Currently simultaneously posting six times a day to Mastodon. (It used to post
-to Twitter, but I don't use Twitter anymore and neither do my bots.)
+Currently simultaneously posting several times a day to Mastodon. (It used to
+post to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
 - **[@obliquestions on Mastodon](https://botsin.space/@obliquestions)**
 
