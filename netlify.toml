@@ -1,6 +1,6 @@
 [functions."do-post"]
   included_files = ["data/questions-corpus.json"]
-  schedule = "*/60 * * * *" # every 60 minutes
+  # schedule = "*/60 * * * *" # every 60 minutes
   # schedule = "@yearly"
   # schedule = "* * * * *" # every minute
-  # schedule = "0 */4 * * *" # every four hours
+  schedule = "0 */4 * * *" # every four hours

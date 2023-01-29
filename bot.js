@@ -30,7 +30,7 @@ async function postToMastodon(thePostToPost) {
     const masto = await accessMastodon();
     const status = await masto.v1.statuses.create({
       status: thePostToPost,
-      visibility: 'private'
+      visibility: 'public'
     });
 
     if (status.id !== 'undefined') {
