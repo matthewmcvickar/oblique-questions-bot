@@ -8,8 +8,8 @@ export async function doPost() {
 }
 
 // Access Mastodon.
-async function accessMastodon() {
-  return await login({
+function accessMastodon() {
+  return login({
     url: 'https://botsin.space',
     accessToken: process.env.MASTODON_ACCESS_TOKEN,
   });
