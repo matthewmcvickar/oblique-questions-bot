@@ -13,7 +13,7 @@ var questionsJSON = './data/questions-corpus.json';
 var questionsArray = fs.readFileSync(questionsFile).toString().split('\n');
 
 // Settings.
-var characterLimit = 280;
+var characterLimit = 300;
 
 function formatQuestion(question) {
   // Trim spaces.
@@ -86,25 +86,46 @@ wordfilter.addWords([
   'section',
 
   // Archaic.
+  '\'st',
   'beest',
+  'd\'ye',
   'didst',
   'dost',
   'goest',
   'hadst',
   'hast',
   'hath',
+  'n\'t',
+  'o\'er',
   'prithee',
+  'quoth',
+  'seest',
   'thee',
   'thine',
   'thou',
+  'thy ',
+  '\'tis',
   'wert',
   'wilt',
+  ' ye ',
   'your\'n',
-  'wain\'t',
+
+  // Outdated.
+  'an\'',
+  'i\' ',
+  ' de ',
+  ' dem ',
+  ' t\' ',
+  'th\' ',
+  'tha\' ',
+  '\'un',
+  ' ye ',
+  ' yeh ',
 
   // Oppressive or violent.
-  'wench',
   'kill',
+  'master',
+  'wench',
 
   // Racial. (Sentences with these words are too often problematic.)
   'white',
