@@ -29,14 +29,14 @@ async function postToMastodon(thePostToPost) {
 
     const masto = await accessMastodon();
 
-    console.log('LOGGING IN TO MASTODON:', masto);
+    // console.log('LOGGING IN TO MASTODON:', masto);
 
     const status = await masto.v1.statuses.create({
       status: thePostToPost,
       visibility: 'public'
     });
 
-    console.log('RESULT OF ATTEMPT TO POST:', status);
+    // console.log('RESULT OF ATTEMPT TO POST:', status);
 
     if (status.id !== 'undefined') {
       console.log('SUCCESSFULLY POSTED TO MASTODON: ', status.url);
@@ -46,6 +46,6 @@ async function postToMastodon(thePostToPost) {
     }
   }
   else {
-    console.log('ERROR: No post created; cannot post.');
+    console.log('ERROR: No question retrieved; cannot post.');
   }
 }
