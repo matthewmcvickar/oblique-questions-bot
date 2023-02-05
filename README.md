@@ -8,7 +8,7 @@ Gutenberg texts.
 Currently simultaneously posting several times a day to Mastodon. (It used to
 post to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
-- **[@obliquestions on Mastodon](https://botsin.space/@obliquestions)**
+📚❓🤖&rarr; **[@obliquestions@botsin.space on Mastodon](https://botsin.space/@obliquestions)**
 
 ## How I Built It
 
