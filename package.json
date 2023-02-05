@@ -1,7 +1,7 @@
 {
   "name": "obliquestions",
   "description": "A bot that posts random, no-context questions from Project Gutenberg books.",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "type": "module",
   "homepage": "https://github.com/matthewmcvickar/oblique-questions-bot",
   "author": {
@@ -19,11 +19,11 @@
   },
   "dependencies": {
     "load-json-file": "^7.0.1",
-    "masto": "^5.7.0",
-    "run-func": "^3.0.0"
+    "masto": "^5.8.0"
   },
   "devDependencies": {
     "dotenv": "^16.0.3",
+    "run-func": "^3.0.0",
     "wordfilter": "^0.2.6"
   }
 }
