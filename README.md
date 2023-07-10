@@ -12,14 +12,14 @@ post to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
 ## How I Built It
 
-Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](http://www.gutenberg.org/wiki/Gutenberg:The_CD_and_DVD_Project#What_the_Discs_Contain). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
+Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk/gutengrep) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](https://www.gutenberg.org/ebooks/11220). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
 
 This left me with about 400 books. I used [gutengrep](https://github.com/hugovk)
 to tokenize the texts into sentences.
 
 Once tokenized, I cleaned up the corpus a bit:
 
-- deleted duplicate lines (with Sublime Text’s `Edit → Permute Lines → Unique`
+- deleted duplicate lines (with Sublime Text's `Edit → Permute Lines → Unique`
   command)
 - deleted empty lines (found `\n\n` and replaced it with `\n`).
 
@@ -67,15 +67,13 @@ After refining the script, I ended up with a JSON file of about 66K questions.
 
 I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and posts the question.
 
-This script is running on TODO.
-
 ## Acknowledgements
 
 I couldn't have created this bot without the help of the following:
 
 - [Sarah Kuehnle's 'Creating a Twitter bot with Node.js' series](http://ursooperduper.github.io/2014/10/27/twitter-bot-with-node-js-part-1.html)
 
-- [Darius Kazemi](https://twitter.com/tinysubversions) provided inspiration and personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
+- [Darius Kazemi](https://tinysubversions.com) provided inspiration and personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
 
 - [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project was instrumental in both providing my corpus and tokenizing it into sentences.
 
