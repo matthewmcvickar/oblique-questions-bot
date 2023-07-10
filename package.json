@@ -14,16 +14,15 @@
     "url": "https://github.com/matthewmcvickar/oblique-questions-bot.git"
   },
   "scripts": {
-    "post": "npx run-func bot.js doPost",
+    "post": "node bot.js",
     "build": "node build-corpus.js"
   },
   "dependencies": {
     "load-json-file": "^7.0.1",
-    "masto": "^5.8.0"
+    "masto": "^5.11.3"
   },
   "devDependencies": {
-    "dotenv": "^16.0.3",
-    "run-func": "^3.0.0",
+    "dotenv": "^16.3.1",
     "wordfilter": "^0.2.6"
   }
 }
