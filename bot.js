@@ -4,7 +4,9 @@ import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
 async function doPost() {
-  return await postToMastodon(getQuestion());
+  const question = await getQuestion();
+  console.log('\n📚 ❓ 🤖 🚀\n\nTrying to post "' + question + '" to Mastodon…');
+  return await postToMastodon(question);
 }
 
 // Post!
@@ -21,9 +23,9 @@ function accessMastodon() {
 };
 
 // Get a random question.
-const questions = loadJsonFileSync('./data/questions-corpus.json');
-const numberOfQuestions = Object.keys(questions).length;
-function getQuestion() {
+async function getQuestion() {
+  const questions = await loadJsonFileSync('./data/questions-corpus.json');
+  const numberOfQuestions = Object.keys(questions).length;
   return questions[Math.floor(Math.random()*numberOfQuestions)].toString();
 }
 
