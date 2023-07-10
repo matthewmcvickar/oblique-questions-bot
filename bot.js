@@ -5,7 +5,7 @@ import { loadJsonFileSync } from 'load-json-file';
 // The main process. Get a question and post it.
 async function doPost() {
   const question = await getQuestion();
-  console.log('\n📚 ❓ 🤖 🚀\n\nTrying to post "' + question + '" to Mastodon…');
+  console.log('📚 ❓ 🤖 🚀\n\nTrying to post "' + question + '" to Mastodon…');
   return await postToMastodon(question);
 }
 
