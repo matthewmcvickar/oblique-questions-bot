@@ -1,7 +1,5 @@
 # Oblique Questions Bot
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/78970349-9fec-4fb2-8ca0-84b8d9e79066/deploy-status)](https://app.netlify.com/sites/oblique-questions-bot/deploys)
-
 A bot that posts questions without context. The questions are drawn from Project
 Gutenberg texts.
 
