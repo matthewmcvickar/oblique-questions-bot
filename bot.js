@@ -3,9 +3,14 @@ import { login } from 'masto';
 import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
-export async function doPost() {
+async function doPost() {
   return await postToMastodon(getQuestion());
 }
+
+// Post!
+doPost();
+
+/* --- */
 
 // Access Mastodon.
 function accessMastodon() {
@@ -24,7 +29,7 @@ function getQuestion() {
 
 // Post the question.
 async function postToMastodon(thePostToPost) {
-  if (typeof(thePostToPost) !== 'undefined') {
+  if (thePostToPost) {
     console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
     const masto = await accessMastodon();

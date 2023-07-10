@@ -1,0 +1,19 @@
+name: "Post to Mastodon"
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm ci
+      - name: Do post
+        run: node bot.js
+        env:
+          MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }}

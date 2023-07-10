@@ -2,6 +2,3 @@
 .env
 node_modules/
 _gutengrep
-
-# Local Netlify folder
-.netlify
