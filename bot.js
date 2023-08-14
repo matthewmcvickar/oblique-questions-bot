@@ -30,26 +30,43 @@ async function getQuestion() {
 }
 
 // Post the question.
+let attemptsToPost = 0;
+
 async function postToMastodon(thePostToPost) {
+  attemptsToPost++;
+
   if (thePostToPost) {
-    console.log('NOW ATTEMPTING TO POST:', thePostToPost);
+    // console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
     const masto = await accessMastodon();
 
     // console.log('LOGGING IN TO MASTODON:', masto);
 
-    const status = await masto.v1.statuses.create({
-      status: thePostToPost,
-      visibility: 'public'
-    });
+    if (masto) {
+      const status = await masto.v1.statuses.create({
+        status: thePostToPost,
+        visibility: 'public'
+      });
 
-    // console.log('RESULT OF ATTEMPT TO POST:', status);
+      // console.log('RESULT OF ATTEMPT TO POST:', status);
 
-    if (status.id !== 'undefined') {
-      console.log('SUCCESSFULLY POSTED TO MASTODON: ', status.url);
+      if (status.id) {
+        console.log('\n✅ SUCCESSFULLY POSTED TO MASTODON:', status.url);
+      }
+      else {
+        console.log('ERROR POSTING:', status);
+      }
     }
     else {
-      console.log('ERROR POSTING:', status);
+      // If we haven't already tried ten times, wait a bit and try again.
+      if (attemptsToPost < 10) {
+        setTimeout(() => {
+          postToMastodon(thePostToPost);
+        }, 5000);
+      }
+      else {
+        console.log('ERROR: Could not post to Mastodon. Try again later.');
+      }
     }
   }
   else {
