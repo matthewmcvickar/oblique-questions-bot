@@ -1,19 +1,16 @@
-'use strict';
-
 // Require filesystem and wordfilter.
-var fs         = require('fs');
-var jsonfile   = require('jsonfile');
-var wordfilter = require('wordfilter');
+import fs from 'fs';
+import wordfilter from 'wordfilter';
 
 // Get questions corpus.
-var questionsFile = './data/questions-raw.txt';
-var questionsJSON = './data/questions-corpus.json';
+const questionsRawFile = './data/questions-raw.txt';
+const questionsJSONPath = './data/questions-corpus.json';
 
 // Read questions into an array.
-var questionsArray = fs.readFileSync(questionsFile).toString().split('\n');
+const questionsArray = fs.readFileSync(questionsRawFile).toString().split('\n');
 
 // Settings.
-var characterLimit = 300;
+const characterLimit = 300;
 
 function formatQuestion(question) {
   // Trim spaces.
@@ -30,13 +27,13 @@ function formatQuestion(question) {
 
 // Check for characters that are part of regex and thereby mess up the wordfilter regex.
 function hasCertainCharacters(question) {
-  var certainCharactersRegex = /\"|\-|\||\[|\]|\(|\)|\{|\}|\$|\^|\+|\\|\/|\.|, '|'\?/;
+  const certainCharactersRegex = /\"|\-|\||\[|\]|\(|\)|\{|\}|\$|\^|\+|\\|\/|\.|, '|'\?/;
   return certainCharactersRegex.test(question);
 }
 
 // Check for proper nouns.
 function hasProperNouns(question) {
-  var properNounRegex = / \b[A-Z]{1}[a-z]+/;
+  const properNounRegex = / \b[A-Z]{1}[a-z]+/;
   return properNounRegex.test(question);
 }
 
@@ -164,15 +161,13 @@ wordfilter.addWords([
   'tithe',
 ]);
 
-var questionsObject = {};
-var counter = 0;
-
 // Run through questions.
-for (var question in questionsArray) {
+let questionsObject = {};
+let counter = 0;
+for (let question in questionsArray) {
   if (questionsArray.hasOwnProperty(question)) {
-
     // Format the question in question.
-    var theQuestion = formatQuestion(questionsArray[question]);
+    let theQuestion = formatQuestion(questionsArray[question]);
 
     // If it's 140 characters or less, doesn't have proper nouns, is a question,
     // and passes the word filters, then add it to the JSON!
@@ -186,11 +181,10 @@ for (var question in questionsArray) {
       questionsObject[counter] = theQuestion;
       counter++;
     }
-
   }
 }
 
 // Add to JSON file.
-jsonfile.writeFile(questionsJSON, questionsObject, {spaces: 2}, function (err) {
+fs.writeFile(questionsJSONPath, JSON.stringify(questionsObject), function (err) {
   console.error(err);
 });
