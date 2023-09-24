@@ -19,6 +19,9 @@ function formatQuestion(question) {
   // Strip beginning and ending quotation marks.
   question = question.replace(/^['"`]/, '').replace(/['"`]$/, '');
 
+  // Replace curly quotation marks.
+  question = question.replace(/[’]/, '\'');
+
   // Capitalize the very first letter.
   question = question.charAt(0).toUpperCase() + question.slice(1);
 
@@ -123,6 +126,7 @@ wordfilter.addWords([
   "th' ",
   "tha' ",
   "wot",
+  "wohin",
   "yer",
 
   // Oppressive, violent, outdated, or otherwise problematic.
