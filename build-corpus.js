@@ -30,7 +30,7 @@ function formatQuestion(question) {
 
 // Check for characters that are part of regex and thereby mess up the wordfilter regex.
 function hasCertainCharacters(question) {
-  const certainCharactersRegex = /\"|\-|\||\[|\]|\(|\)|\{|\}|\$|\^|\+|\\|\/|\.|, '|'\?/;
+  const certainCharactersRegex = /\"|\-|\||\[|\]|\(|\)|\{|\}|\$|\^|\+|\\|\/|\.|\*|, '|'\?/;
   return certainCharactersRegex.test(question);
 }
 
@@ -43,6 +43,11 @@ function hasProperNouns(question) {
 // Check that last character is a question mark.
 function lastCharacterIsQuestionMark(question) {
   return question.substr(question.length - 1) === '?';
+}
+
+// Check that first character is a letter.
+function firstCharacterIsLetter(question) {
+  return /[A-Za-z]+/.test(question.charAt(0));
 }
 
 // Additional filters.
@@ -113,20 +118,22 @@ wordfilter.addWords([
   "your'n",
 
   // Dialect/outdated.
+  "'un",
+  "\\ d'ye\\ ",
   "\\ de\\ ",
   "\\ dem\\ ",
-  "\\ d'ye\\ ",
+  "\\ fer\\ ",
   "\\ git\\ ",
+  "\\ ses\\ ",
   "\\ t'\\ ",
   "\\ ye\\ ",
   "\\ yeh\\ ",
-  "'un",
   "an'",
   "i' ",
   "th' ",
   "tha' ",
-  "wot",
   "wohin",
+  "wot",
   "yer",
 
   // Oppressive, violent, outdated, or otherwise problematic.
@@ -134,18 +141,32 @@ wordfilter.addWords([
   "chief",
   "colored",
   "craz",
+  "darkie",
+  "darky",
+  "gips",
   "kill",
   "master",
   "nagur",
   "native",
   "negre",
+  "noose",
   "red",
   "savage",
   "slave",
-  "spooney",
+  "suicide",
   "wench",
   "white",
   "yellow",
+
+  // Miscellaneous.
+  "\\ D'",
+  "citoy",
+  "coz",
+  "dat \\",
+  "doat",
+  "hearn",
+  "puss",
+  "spooney",
 
   // Religious.
   "arab",
@@ -190,6 +211,7 @@ for (let question in questionsArray) {
         ! hasProperNouns(theQuestion) &&
         ! hasCertainCharacters(theQuestion) &&
         ! wordfilter.blacklisted(theQuestion) &&
+        firstCharacterIsLetter(theQuestion) &&
         lastCharacterIsQuestionMark(theQuestion))
     {
       // console.log(theQuestion)
