@@ -158,6 +158,19 @@ wordfilter.addWords([
   "white",
   "yellow",
 
+  // Ableist,
+  "blind",
+  "cripple",
+  "deaf",
+  "handicap",
+  "idiot",
+  "insane",
+  "lame",
+  "mental",
+  "psycho",
+  "spaz",
+  "special need",
+
   // Miscellaneous.
   "\\ D'",
   "citoy",
