@@ -150,6 +150,8 @@ wordfilter.addWords([
   "native",
   "negre",
   "noose",
+  "\\ race",
+  "racial",
   "red",
   "savage",
   "slave",
