@@ -17,7 +17,7 @@ function formatQuestion(question) {
   question = question.trim();
 
   // Strip beginning and ending quotation marks.
-  question = question.replace(/^['"`]/, '').replace(/['"`]$/, '');
+  question = question.replace(/^["`]/, '').replace(/["`]$/, '');
 
   // Replace curly quotation marks.
   question = question.replace(/[’]/, '\'');
@@ -83,6 +83,7 @@ wordfilter.addWords([
   "=",
   "<",
   ">",
+  "\\ '",
 
   // Irrelevant.
   "gutenberg",
