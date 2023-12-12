@@ -119,6 +119,7 @@ wordfilter.addWords([
 
   // Dialect/outdated.
   "'un",
+  "\\ dat\\ ",
   "\\ d'ye\\ ",
   "\\ de\\ ",
   "\\ dem\\ ",
@@ -137,6 +138,8 @@ wordfilter.addWords([
   "yer",
 
   // Oppressive, violent, outdated, or otherwise problematic.
+  "beggar",
+  "begging",
   "black",
   "chief",
   "colored",
@@ -156,6 +159,8 @@ wordfilter.addWords([
   "savage",
   "slave",
   "suicide",
+  "tramp",
+  "vagrant",
   "wench",
   "white",
   "yellow",
