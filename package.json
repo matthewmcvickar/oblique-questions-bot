@@ -18,9 +18,9 @@
     "build": "node build-corpus.js"
   },
   "dependencies": {
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.5",
     "load-json-file": "^7.0.1",
-    "masto": "^5.11.3"
+    "masto": "^6.7.2"
   },
   "devDependencies": {
     "wordfilter": "^0.2.6"

@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv'; dotenv.config();
-import { login } from 'masto';
+import { createRestAPIClient } from 'masto';
 import { loadJsonFileSync } from 'load-json-file';
 
 // The main process. Get a question and post it.
@@ -13,14 +13,6 @@ async function doPost() {
 doPost();
 
 /* --- */
-
-// Access Mastodon.
-function accessMastodon() {
-  return login({
-    url: 'https://botsin.space',
-    accessToken: process.env.MASTODON_ACCESS_TOKEN,
-  });
-};
 
 // Get a random question.
 async function getQuestion() {
@@ -38,7 +30,11 @@ async function postToMastodon(thePostToPost) {
   if (thePostToPost) {
     // console.log('NOW ATTEMPTING TO POST:', thePostToPost);
 
-    const masto = await accessMastodon();
+    // Access Mastodon.
+    const masto = createRestAPIClient({
+      url: 'https://botsin.space',
+      accessToken: process.env.MASTODON_ACCESS_TOKEN,
+    });
 
     // console.log('LOGGING IN TO MASTODON:', masto);
 
