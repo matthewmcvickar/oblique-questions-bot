@@ -137,6 +137,7 @@ wordfilter.addWords([
   "wohin",
   "wot",
   "yer",
+  "fwhat",
 
   // Oppressive, violent, outdated, or otherwise problematic.
   "beggar",
