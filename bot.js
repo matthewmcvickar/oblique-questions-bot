@@ -10,7 +10,7 @@ const blueskyAgent = new AtpAgent({
 
 // TODO: Use OAuth-based session management instead.
 //       https://www.npmjs.com/package/@atproto/oauth-client-node
-const blueskyLogin = await blueskyAgent.login({
+await blueskyAgent.login({
   identifier: process.env.BLUESKY_USERNAME,
   password: process.env.BLUESKY_PASSWORD
 });
@@ -78,7 +78,7 @@ async function postToBluesky(thePostToPost) {
     console.error('ERROR: No question retrieved; cannot post to Bluesky.');
   }
 
-  if ( ! blueskyLogin ) {
+  if ( ! blueskyAgent.did ) {
     console.error('ERROR: Could not connect to Bluesky. Try again later.');
   }
 
