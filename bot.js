@@ -88,14 +88,16 @@ async function postToBluesky(thePostToPost) {
     text: thePostToPost
   });
 
-  console.log('RESULT OF ATTEMPT TO POST TO BLUESKY:', postedPost);
+  // console.log('RESULT OF ATTEMPT TO POST TO BLUESKY:', postedPost);
 
   if (postedPost.uri) {
     // Build a bsky.app URL from the returned object.
     // https://github.com/bluesky-social/atproto/discussions/2523
-    let didRegex = postedPost.uri.match(/at:\/\/([A-Za-z0-9:]+)\//)
-    let rkey = postedPost.commit.rev;
-    let postUrl = 'https://bsky.app/profile/' + didRegex[1] + '/post/' + rkey
+    // https://regex101.com/r/oNdt57/1
+    let uriRegex = postedPost.uri.match(/at:\/\/([A-Za-z0-9:]+)\/[a-z.]+\/([A-Za-z0-9]+)/)
+    let did = uriRegex[1];
+    let rkey = uriRegex[2];
+    let postUrl = 'https://bsky.app/profile/' + did + '/post/' + rkey
 
     console.log('\n✅ SUCCESSFULLY POSTED TO BLUESKY:', postUrl);
   }
