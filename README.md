@@ -3,10 +3,12 @@
 A bot that posts questions without context. The questions are drawn from Project
 Gutenberg texts.
 
-Currently posting several times a day to Mastodon. (It used to
+Currently posting several times a day to Mastodon and Bluesky. (It used to
 post to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
-📚 ❓ 🤖 &rarr; **[@obliquestions on Mastodon](https://mastodon.matthewmcvickar.com/@obliquestions)**
+📚 ❓ 🤖 🐘 &rarr; **[@obliquestions on Mastodon](https://mastodon.matthewmcvickar.com/@obliquestions)**
+
+📚 ❓ 🤖 ☁️ &rarr; **[@obliquestions on Bluesky](https://bsky.app/profile/obliquestions.bsky.social)**
 
 ## How I Built It
 
