@@ -19,9 +19,9 @@
   },
   "dependencies": {
     "@atproto/api": "^0.13.19",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "load-json-file": "^7.0.1",
-    "masto": "^6.7.2"
+    "masto": "^6.10.1"
   },
   "devDependencies": {
     "wordfilter": "^0.2.6"
