@@ -10,7 +10,14 @@ post to Twitter, but I don't use Twitter anymore and neither do my bots.)
 
 ## How I Built It
 
-Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk/gutengrep) project, the initial corpus was derived from books in the [Project Gutenberg 'August 2003' CD](https://www.gutenberg.org/ebooks/11220). To make the dataset cleaner to begin with, I removed almost 200 books from the collection manually before building my corpus. These included non-English texts, poetry and dramatic texts, texts heavy with dialect, and religious, mathematical, encyclopedic, and political texts.
+Taking inspiration from [Hugo van Kemenade](https://github.com/hugovk/)'s
+[gutengrep](https://github.com/hugovk/gutengrep) project, the initial corpus was
+derived from books in the [Project Gutenberg 'August 2003'
+CD](https://www.gutenberg.org/ebooks/11220). To make the dataset cleaner to
+begin with, I removed almost 200 books from the collection manually before
+building my corpus. These included non-English texts, poetry and dramatic texts,
+texts heavy with dialect, and religious, mathematical, encyclopedic, and
+political texts.
 
 This left me with about 400 books. I used [gutengrep](https://github.com/hugovk)
 to tokenize the texts into sentences.
@@ -53,7 +60,8 @@ the sentences into a set of postable questions. In order:
 - Filtered out any question that would relate to the text itself or Project
   Gutenberg itself (like `gutenberg` and `donate` and `chapter` and `section`).
 
-- Filtered out the [bad words listed in Darius Kazemi's wordfilter](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json).
+- Filtered out the [bad words listed in Darius Kazemi's
+  wordfilter](https://github.com/dariusk/wordfilter/blob/master/lib/badwords.json).
 
 - Filtered out any question that contained some additional oppressive language
   not covered by wordfilter and words that tend to appear in problematic
@@ -63,25 +71,41 @@ If a sentence passed all the filters, I added it to a giant JSON file.
 
 After refining the script, I ended up with a JSON file of about 66K questions.
 
-I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a question from it at random, and posts the question.
+I then wrote a script ([bot.js](bot.js)) that reads the JSON file, chooses a
+question from it at random, and posts the question.
 
 ## Acknowledgements
 
 I couldn't have created this bot without the help of the following:
 
-- [Sarah Kuehnle's 'Creating a Twitter bot with Node.js' series](http://ursooperduper.github.io/2014/10/27/twitter-bot-with-node-js-part-1.html)
+- [Sarah Kuehnle's 'Creating a Twitter bot with Node.js'
+  series](http://ursooperduper.github.io/2014/10/27/twitter-bot-with-node-js-part-1.html)
 
-- [Darius Kazemi](https://tinysubversions.com) provided inspiration and personal technical assistance. I also referenced his projects [examplebot](https://github.com/dariusk/examplebot) and [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot) and his posts [How to make a Twitter bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic Twitter bot etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
+- [Darius Kazemi](https://tinysubversions.com) provided inspiration and personal
+  technical assistance. I also referenced his projects
+  [examplebot](https://github.com/dariusk/examplebot) and
+  [grunt-init-twitter-bot](https://github.com/dariusk/grunt-init-twitter-bot)
+  and his posts [How to make a Twitter
+  bot](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) and [Basic
+  Twitter bot
+  etiquette](http://tinysubversions.com/2013/03/basic-twitter-bot-etiquette/).
 
-- [Hugo van Kemenade](https://github.com/hugovk/)'s [gutengrep](https://github.com/hugovk) project was instrumental in both providing my corpus and tokenizing it into sentences.
+- [Hugo van Kemenade](https://github.com/hugovk/)'s
+  [gutengrep](https://github.com/hugovk) project was instrumental in both
+  providing my corpus and tokenizing it into sentences.
 
-- [Justin Falcone](https://twitter.com/modernserf) provided inspiration, encouragement, and personal technical assistance.
+- [Justin Falcone](https://twitter.com/modernserf) provided inspiration,
+  encouragement, and personal technical assistance.
 
-- This project was inspired in name and in concept by Brian Eno and Peter Schmidt's [Oblique Strategies](https://en.wikipedia.org/wiki/Oblique_Strategies).
+- This project was inspired in name and in concept by Brian Eno and Peter
+  Schmidt's [Oblique
+  Strategies](https://en.wikipedia.org/wiki/Oblique_Strategies).
 
-- This project was also inspired by [Allison Parrish's Deep Question Bot](https://twitter.com/deepquestionbot).
+- This project was also inspired by [Allison Parrish's Deep Question
+  Bot](https://twitter.com/deepquestionbot).
 
-- This project was also inspired by [Jeremy P. Bushnell's 'Notes Minus Context' Twitter account](https://twitter.com/jpbisreading).
+- This project was also inspired by [Jeremy P. Bushnell's 'Notes Minus Context'
+  Twitter account](https://twitter.com/jpbisreading).
 
 ## Afterword
 
