@@ -18,10 +18,10 @@
     "build": "node build-corpus.js"
   },
   "dependencies": {
-    "@atproto/api": "^0.20.16",
-    "dotenv": "^17.4.2",
+    "@atproto/api": "^0.21.0",
+    "dotenv": "^18.0.4",
     "load-json-file": "^7.0.1",
-    "masto": "^7.11.1"
+    "masto": "^8.0.0"
   },
   "devDependencies": {
     "wordfilter": "^0.2.6"
